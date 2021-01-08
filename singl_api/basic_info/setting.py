@@ -148,11 +148,11 @@ MySQL_CONFIG1 = {
 #     "DB": 'demo18',
 #     'case_db': 'test'}
 MySQL_CONFIG = {
-    'HOST': '192.168.1.199',
+    'HOST': '192.168.1.82',
     "PORT": 3306,
     "USER": 'merce',
     "PASSWORD": 'merce',
-    "DB": 'lq',
+    "DB": 'merce_199',
     'case_db': 'test'}
 
 tenant_id_189 = "2d7ad891-41c5-4fba-9ff2-03aef3c729e5"  # 189环境default租戶ID

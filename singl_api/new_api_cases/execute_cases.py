@@ -261,6 +261,7 @@ def post_request_result_check(row, column, url, host, headers, data, table_sheet
         # 先获取statementId,然后格式化URL，再发送请求
         print('开始执行：', case_detail)
         dataset_id, new_data = dataset_data(data)
+        print("数据集id=%s,新数据id=%s"%(dataset_id,new_data))
         new_url = url.format(dataset_id)
         new_data = json.dumps(new_data, separators=(',', ':'))
         print("new_data:", new_data)
@@ -273,7 +274,10 @@ def post_request_result_check(row, column, url, host, headers, data, table_sheet
     elif case_detail == '根据statement id,获取预览Dataset的结果数据(datasetId存在)':
         # 先获取statementId,然后格式化URL，再发送请求
         print('开始执行：', case_detail)
-        dataset_id, statement_id, new_data = statementId(host, data)
+        try:
+            dataset_id, statement_id, new_data = statementId(host, data)
+        except Exception as reason:
+            print("显示异常",reason)
         new_url = url.format(dataset_id, statement_id)
         print(new_url)
         print("new_data:", new_data)
