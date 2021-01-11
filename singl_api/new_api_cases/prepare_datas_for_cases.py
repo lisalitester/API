@@ -224,6 +224,10 @@ def dss_data(data):
         new_data = {"id":"","name":"gjb_for_all_type_es_datasource_test_随机数","type":"ES","description":"","attributes":{"clusterName":"es85","ipAddresses":"192.168.1.85:9200","index":"test","indexType":"test","version":"5.x"}, "owner": flow_info[0]["owner"], "resource": {"id": flow_info[0]["id"]}}
         deal_random(new_data)
         return new_data
+    elif 'lq_for_all_type_localfs_datasource_test' in data:
+        new_data = {"id":"","name":"lq_for_all_type_localfs_datasource_test_随机数","type":"LOCALFS","description":"","attributes":{"encoder":"UTF-8","path":"test"},"resource":{"id":flow_info[0]["id"]}}
+        deal_random(new_data)
+        return new_data
     elif 'datasource_query' in data:
         new_data = {"fieldList": [{"fieldName":"parentId","fieldValue": flow_info[0]["id"], "comparatorOperator":"EQUAL","logicalOperator":"AND"}],"sortObject": {"field":"lastModifiedTime","orderDirection":"DESC"},"offset":0,"limit":8}
         return new_data
@@ -254,6 +258,7 @@ def dataset_data(data):
         print(sql)
         print('resource_id-owner-tenant_id:', dataset_info[0]["id"], dataset_info[0]["owner"], dataset_info[0]["tenant_id"])
         schema_id, schema_resourceid,schema_name = schema_data(data)
+        print("元数据id=%s,元数据resourceid=%s,元数据名字=%s"%(schema_id,schema_resourceid,schema_name))
     except:
         return
     if 'gjb_test_ftp_dataset' in data:
